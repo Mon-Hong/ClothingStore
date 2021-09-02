@@ -29,13 +29,15 @@ namespace clothing_store
             {
                 Console.WriteLine("Size : {0} , Color : {1} , Price {2} , Image {3}", t_shirt.size, t_shirt.color, t_shirt.price, t_shirt.image);                
             }
-            float totalcost = 0;
+
+            ShoppingCart shopping = new ShoppingCart(0);
+            
             foreach (T_shirt t_shirt in t_shirts)
             {
-                totalcost += t_shirt.price;
+                shopping.totalcost += t_shirt.price;
             }
 
-            Console.WriteLine("Total price : {0}", totalcost);
+            Console.WriteLine("Total price : {0}", shopping.totalcost);
             /*
             List<ShoppingCart> shoppings = new List<ShoppingCart>();
             ShoppingCart shopp1 = new ShoppingCart(500f);
@@ -117,12 +119,12 @@ namespace clothing_store
     {
         public List<T_shirt> t_shirts;
         public float totalcost;
-        private List<Address> addresses;
+        private Address address;
 
         public ShoppingCart(float valuetotalcost)
         {
 
-            totalcost = valuetotalcost;
+            totalcost = 0;
             
         }
 
